@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Ekstrakurikuler Sekolah</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <style>
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .category-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .category-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        .category-description {
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">SI-Eskul</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="login.html">Login</a>
+                <a href="pages/notifications.html">Notifikasi</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Sistem Informasi Ekstrakurikuler Sekolah</h1>
+    </header>
+    <div class="container">
+        <h2 style="text-align: center; color: #333; margin-bottom: 10px;">Kategori Ekstrakurikuler</h2>
+        <div class="categories">
+            <div class="category-card">
+                <div class="category-icon">🏛️</div>
+                <h3 class="category-title">Organisasi</h3>
+                <p class="category-description">OSIS, MPK, dan organisasi siswa lainnya</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎨</div>
+                <h3 class="category-title">Seni</h3>
+                <p class="category-description">Tari, Musik, Teater, dan seni lainnya</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">⚽</div>
+                <h3 class="category-title">Olahraga</h3>
+                <p class="category-description">Sepakbola, Basket, Voli, dan olahraga lainnya</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🌍</div>
+                <h3 class="category-title">Bahasa</h3>
+                <p class="category-description">Bahasa Inggris, Jepang, Mandarin, dll</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🔬</div>
+                <h3 class="category-title">Sains & Teknologi</h3>
+                <p class="category-description">Robotik, Programming, Astronomi</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📚</div>
+                <h3 class="category-title">Kepemimpinan</h3>
+                <p class="category-description">Pramuka, PMR, dan kegiatan kepemimpinan</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

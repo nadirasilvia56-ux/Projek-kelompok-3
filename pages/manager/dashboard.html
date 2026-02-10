@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pengurus - Sistem Informasi Ekstrakurikuler</title>
+    <style>
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: #555;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .eskul-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .eskul-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .eskul-logo {
+            font-size: 4em;
+            background-color: #2196F3;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .eskul-details {
+            flex: 1;
+        }
+        .eskul-name {
+            font-size: 2em;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .eskul-description {
+            color: #666;
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+        }
+        .eskul-stats {
+            display: flex;
+            gap: 20px;
+        }
+        .stat-item {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        .menu-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .menu-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+            transition: transform 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .menu-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .menu-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 8px 0;
+        }
+        .menu-description {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0 0 15px 0;
+            line-height: 1.4;
+        }
+        .menu-btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        .menu-btn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dashboard Pengurus</h1>
+    </header>
+    <div class="container">
+        <div class="eskul-info">
+            <div class="eskul-header">
+                <div class="eskul-logo">🏀</div>
+                <div class="eskul-details">
+                    <h2 class="eskul-name">Basket</h2>
+                    <p class="eskul-description">Tim basket sekolah yang mengembangkan kemampuan bermain basket dan mengikuti kompetisi tingkat daerah.</p>
+                    <div class="eskul-stats">
+                        <span class="stat-item">24 Anggota</span>
+                        <span class="stat-item">5 Kegiatan Aktif</span>
+                        <span class="stat-item">3 Prestasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3 class="section-title">Menu Pengelolaan</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="menu-icon">📝</div>
+                    <h4 class="menu-title">Edit Deskripsi Eskul</h4>
+                    <p class="menu-description">Ubah informasi dan deskripsi ekstrakurikuler</p>
+                    <button class="menu-btn">Edit</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">📅</div>
+                    <h4 class="menu-title">Kelola Agenda</h4>
+                    <p class="menu-description">Buat, edit, dan hapus jadwal kegiatan</p>
+                    <button class="menu-btn">Kelola</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">👥</div>
+                    <h4 class="menu-title">Lihat Pendaftar</h4>
+                    <p class="menu-description">Pantau siswa yang mendaftar dan statusnya</p>
+                    <button class="menu-btn">Lihat</button>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon">📢</div>
+                    <h4 class="menu-title">Kirim Notifikasi</h4>
+                    <p class="menu-description">Kirim pengumuman ke anggota eskul</p>
+                    <button class="menu-btn">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

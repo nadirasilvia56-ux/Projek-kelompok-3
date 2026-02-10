@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pendaftar - Basket</title>
+    <style>
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: #555;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .page-title {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .eskul-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .eskul-logo {
+            font-size: 2em;
+            background-color: #2196F3;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .eskul-name {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0;
+        }
+        .applicants-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 10px;
+        }
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background-color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        .applicants-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .applicants-table th,
+        .applicants-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .applicants-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            color: #333;
+        }
+        .applicants-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .status-pending {
+            background-color: #FF9800;
+            color: white;
+        }
+        .status-accepted {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .status-rejected {
+            background-color: #F44336;
+            color: white;
+        }
+        .action-btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+        .action-btn:hover {
+            background-color: #1976D2;
+        }
+        .btn-accept {
+            background-color: #4CAF50;
+        }
+        .btn-accept:hover {
+            background-color: #45a049;
+        }
+        .btn-reject {
+            background-color: #F44336;
+        }
+        .btn-reject:hover {
+            background-color: #d32f2f;
+        }
+        .no-applicants {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Daftar Pendaftar Ekstrakurikuler</h1>
+    </header>
+    <div class="container">
+        <div class="page-title">
+            <div class="eskul-info">
+                <div class="eskul-logo">🏀</div>
+                <h2 class="eskul-name">Basket</h2>
+            </div>
+        </div>
+
+        <div class="applicants-section">
+            <h3 class="section-title">Daftar Pendaftar</h3>
+            <div class="stats">
+                <span class="stat-item">Total Pendaftar: 8</span>
+                <span class="stat-item">Menunggu: 5</span>
+                <span class="stat-item">Diterima: 2</span>
+                <span class="stat-item">Ditolak: 1</span>
+            </div>
+
+            <table class="applicants-table">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Status Seleksi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ahmad Rahman</td>
+                        <td>11 IPA 1</td>
+                        <td><span class="status-badge status-accepted">Diterima</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Ahmad Rahman', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Ahmad Rahman', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Siti Nurhaliza</td>
+                        <td>10 IPS 2</td>
+                        <td><span class="status-badge status-accepted">Diterima</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Siti Nurhaliza', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Siti Nurhaliza', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Budi Santoso</td>
+                        <td>11 IPA 3</td>
+                        <td><span class="status-badge status-rejected">Ditolak</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Budi Santoso', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Budi Santoso', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dewi Lestari</td>
+                        <td>10 IPA 1</td>
+                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Dewi Lestari', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Dewi Lestari', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Eko Prasetyo</td>
+                        <td>11 IPS 1</td>
+                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Eko Prasetyo', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Eko Prasetyo', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fajar Nugroho</td>
+                        <td>10 IPA 2</td>
+                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Fajar Nugroho', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Fajar Nugroho', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gita Permata</td>
+                        <td>11 IPA 2</td>
+                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Gita Permata', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Gita Permata', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hendra Wijaya</td>
+                        <td>10 IPS 1</td>
+                        <td><span class="status-badge status-pending">Menunggu</span></td>
+                        <td>
+                            <button class="action-btn btn-accept" onclick="changeStatus('Hendra Wijaya', 'accepted')">Terima</button>
+                            <button class="action-btn btn-reject" onclick="changeStatus('Hendra Wijaya', 'rejected')">Tolak</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function changeStatus(name, status) {
+            // Dummy function - hanya menampilkan alert
+            if (status === 'accepted') {
+                alert(`Status ${name} telah diubah menjadi DITERIMA`);
+            } else if (status === 'rejected') {
+                alert(`Status ${name} telah diubah menjadi DITOLAK`);
+            }
+            // Dalam implementasi nyata, ini akan mengirim request ke backend
+        }
+    </script>
+</body>
+</html>

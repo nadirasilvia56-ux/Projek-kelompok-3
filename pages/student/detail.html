@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Ekstrakurikuler - Basket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .detail-header {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .eskul-logo {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+        .eskul-title {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        .eskul-category {
+            color: #666;
+            font-size: 1.1em;
+            margin: 0;
+        }
+        .register-btn {
+            background-color: #FF5722;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .register-btn:hover {
+            background-color: #D84315;
+        }
+        .section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+        }
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .schedule-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #4CAF50;
+        }
+        .schedule-day {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .schedule-time {
+            color: #666;
+        }
+        .agenda-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .agenda-item {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #2196F3;
+        }
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .achievement-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border-left: 4px solid #FF9800;
+        }
+        .achievement-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .achievement-title {
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 5px 0;
+        }
+        .achievement-year {
+            color: #666;
+            font-size: 0.9em;
+            margin: 0;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .faq-answer {
+            color: #666;
+            margin: 0;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .modal-buttons {
+            margin-top: 20px;
+        }
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 0 10px;
+        }
+        .btn-yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-no {
+            background-color: #f44336;
+            color: white;
+        }
+        .success-message {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">SI-Eskul</div>
+            <div class="nav-links">
+                <a href="../../index.html">Beranda</a>
+                <a href="../../login.html">Login</a>
+                <a href="../../pages/notifications.html">Notifikasi</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="profile.html">Profil</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Detail Ekstrakurikuler</h1>
+    </header>
+    <div class="container">
+        <div class="detail-header">
+            <div class="eskul-logo">🏀</div>
+            <h2 class="eskul-title">Basket</h2>
+            <p class="eskul-category">Kategori: Olahraga</p>
+            <button class="register-btn" onclick="showConfirmation()">Daftar Ekstrakurikuler</button>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Deskripsi</h3>
+            <p>Ekstrakurikuler Basket adalah kegiatan olahraga yang bertujuan untuk mengembangkan kemampuan fisik, mental, dan sosial siswa melalui permainan basket. Kegiatan ini meliputi latihan rutin, pertandingan internal, dan kompetisi eksternal. Siswa akan belajar teknik dasar basket, strategi permainan, serta nilai-nilai sportivitas dan kerja sama tim.</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Jadwal Latihan</h3>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-day">Senin</div>
+                    <div class="schedule-time">15:00 - 17:00 WIB</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-day">Rabu</div>
+                    <div class="schedule-time">15:00 - 17:00 WIB</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-day">Jumat</div>
+                    <div class="schedule-time">15:00 - 17:00 WIB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Agenda Ekstrakurikuler</h3>
+            <ul class="agenda-list">
+                <li class="agenda-item">Latihan rutin 3x seminggu</li>
+                <li class="agenda-item">Turnamen basket antar kelas (Februari)</li>
+                <li class="agenda-item">Kejuaraan basket antar sekolah (April)</li>
+                <li class="agenda-item">Pelatihan teknik basket (Juni)</li>
+                <li class="agenda-item">Study tour ke lapangan basket profesional (Agustus)</li>
+                <li class="agenda-item">Pembentukan tim inti untuk kompetisi (September)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Prestasi Ekstrakurikuler</h3>
+            <div class="achievement-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h4 class="achievement-title">Juara 1 Kejuaraan Basket Antar Sekolah</h4>
+                    <p class="achievement-year">2023</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🥈</div>
+                    <h4 class="achievement-title">Juara 2 Turnamen Basket Kota</h4>
+                    <p class="achievement-year">2023</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎖️</div>
+                    <h4 class="achievement-title">Peserta Final Kejuaraan Provinsi</h4>
+                    <p class="achievement-year">2022</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏅</div>
+                    <h4 class="achievement-title">Juara 3 Liga Basket Pelajar</h4>
+                    <p class="achievement-year">2022</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">FAQ (Pertanyaan Umum)</h3>
+            <div class="faq-item">
+                <div class="faq-question">Apakah ada syarat khusus untuk bergabung?</div>
+                <p class="faq-answer">Tidak ada syarat khusus. Semua siswa yang tertarik dengan basket dipersilakan bergabung. Kami akan melakukan seleksi awal untuk menentukan posisi yang sesuai.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Berapa biaya yang diperlukan?</div>
+                <p class="faq-answer">Ekstrakurikuler basket tidak memungut biaya apapun. Semua peralatan dan kebutuhan latihan disediakan oleh sekolah.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Apakah boleh bergabung di tengah semester?</div>
+                <p class="faq-answer">Ya, pendaftaran terbuka sepanjang tahun ajaran. Namun, untuk mengikuti kompetisi, disarankan bergabung di awal semester.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Apa saja yang akan dipelajari?</div>
+                <p class="faq-answer">Teknik dasar basket (shooting, dribbling, passing), strategi permainan, aturan resmi basket, dan pengembangan fisik serta mental.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Konfirmasi -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h3>Konfirmasi Pendaftaran</h3>
+            <p>Apakah Anda yakin ingin mendaftar ke ekstrakurikuler Basket?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-yes" onclick="confirmRegistration()">Ya</button>
+                <button class="modal-btn btn-no" onclick="closeModal()">Tidak</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sukses -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h3 class="success-message">Pendaftaran Berhasil!</h3>
+            <p>Selamat! Anda telah berhasil mendaftar ke ekstrakurikuler Basket.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn btn-yes" onclick="closeModal()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showConfirmation() {
+            document.getElementById('confirmationModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        function confirmRegistration() {
+            document.getElementById('confirmationModal').style.display = 'none';
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            var confirmationModal = document.getElementById('confirmationModal');
+            var successModal = document.getElementById('successModal');
+            if (event.target == confirmationModal) {
+                confirmationModal.style.display = 'none';
+            }
+            if (event.target == successModal) {
+                successModal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

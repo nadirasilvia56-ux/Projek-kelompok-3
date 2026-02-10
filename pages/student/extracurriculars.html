@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Ekstrakurikuler - Sistem Informasi Ekstrakurikuler</title>
+    <style>
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .nav-logo {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: #555;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .filters {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        .search-bar {
+            flex: 1;
+            min-width: 200px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        .category-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 15px;
+            border: 2px solid #4CAF50;
+            background-color: white;
+            color: #4CAF50;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .extracurriculars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .extracurricular-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .extracurricular-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .card-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .extracurricular-logo {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .extracurricular-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .extracurricular-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .card-footer {
+            padding: 15px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        .detail-btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+        .detail-btn:hover {
+            background-color: #1976D2;
+        }
+        .no-results {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px;
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Daftar Ekstrakurikuler</h1>
+    </header>
+    <div class="container">
+        <div class="filters">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Cari ekstrakurikuler..." id="searchInput">
+            </div>
+            <div class="category-filter">
+                <button class="filter-btn active" data-category="all">Semua</button>
+                <button class="filter-btn" data-category="organisasi">Organisasi</button>
+                <button class="filter-btn" data-category="seni">Seni</button>
+                <button class="filter-btn" data-category="olahraga">Olahraga</button>
+                <button class="filter-btn" data-category="bahasa">Bahasa</button>
+                <button class="filter-btn" data-category="sains">Sains & Teknologi</button>
+            </div>
+        </div>
+
+        <div class="extracurriculars-grid" id="extracurricularsGrid">
+            <!-- Organisasi -->
+            <div class="extracurricular-card" data-category="organisasi">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🏛️</div>
+                    <h3 class="extracurricular-name">OSIS</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Organisasi Siswa Intra Sekolah yang mengelola berbagai kegiatan dan menjadi jembatan antara siswa dengan pihak sekolah.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="organisasi">
+                <div class="card-header">
+                    <div class="extracurricular-logo">👥</div>
+                    <h3 class="extracurricular-name">MPK</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Majelis Permusyawaratan Kelas yang membantu mengkoordinasikan kegiatan kelas dan menjadi penghubung siswa dengan guru.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Seni -->
+            <div class="extracurricular-card" data-category="seni">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🎨</div>
+                    <h3 class="extracurricular-name">Tari Tradisional</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Belajar berbagai tarian tradisional Indonesia dan mengembangkan bakat seni tari serta kreativitas siswa.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="seni">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🎵</div>
+                    <h3 class="extracurricular-name">Paduan Suara</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Berkumpulnya siswa yang memiliki minat dan bakat di bidang vokal untuk mengasah kemampuan bernyanyi bersama.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="seni">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🎭</div>
+                    <h3 class="extracurricular-name">Teater</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Kegiatan seni peran yang melatih kemampuan acting, improvisasi, dan kerja sama dalam sebuah pertunjukan.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Olahraga -->
+            <div class="extracurricular-card" data-category="olahraga">
+                <div class="card-header">
+                    <div class="extracurricular-logo">⚽</div>
+                    <h3 class="extracurricular-name">Sepakbola</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Tim sepakbola sekolah yang berlatih rutin dan mengikuti berbagai kompetisi olahraga antar sekolah.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="olahraga">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🏀</div>
+                    <h3 class="extracurricular-name">Basket</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Tim basket sekolah yang mengembangkan kemampuan bermain basket dan mengikuti kompetisi tingkat daerah.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="olahraga">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🏐</div>
+                    <h3 class="extracurricular-name">Voli</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Tim voli sekolah yang berlatih teknik permainan dan berpartisipasi dalam turnamen olahraga siswa.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Bahasa -->
+            <div class="extracurricular-card" data-category="bahasa">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🌍</div>
+                    <h3 class="extracurricular-name">Bahasa Inggris</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Kegiatan belajar bahasa Inggris yang meliputi speaking, writing, grammar, dan preparation untuk ujian bahasa.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="bahasa">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🇯🇵</div>
+                    <h3 class="extracurricular-name">Bahasa Jepang</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Belajar bahasa Jepang mulai dari hiragana, katakana, kanji dasar, percakapan sehari-hari, dan budaya Jepang.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Sains & Teknologi -->
+            <div class="extracurricular-card" data-category="sains">
+                <div class="card-header">
+                    <div class="extracurricular-logo">🤖</div>
+                    <h3 class="extracurricular-name">Robotik</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Kegiatan pembuatan dan programming robot untuk kompetisi robotik tingkat nasional dan internasional.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+
+            <div class="extracurricular-card" data-category="sains">
+                <div class="card-header">
+                    <div class="extracurricular-logo">💻</div>
+                    <h3 class="extracurricular-name">Programming</h3>
+                </div>
+                <div class="card-body">
+                    <p class="extracurricular-description">Belajar berbagai bahasa pemrograman, algoritma, dan pengembangan aplikasi untuk mengasah kemampuan IT siswa.</p>
+                </div>
+                <div class="card-footer">
+                    <button class="detail-btn">Lihat Detail</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.extracurricular-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+                filterCards(category, searchInput.value);
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-category');
+            filterCards(activeCategory, searchInput.value);
+        });
+
+        function filterCards(category, searchTerm) {
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardName = card.querySelector('.extracurricular-name').textContent.toLowerCase();
+                const matchesCategory = category === 'all' || cardCategory === category;
+                const matchesSearch = cardName.includes(searchTerm.toLowerCase());
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            const noResults = document.querySelector('.no-results');
+            if (noResults) {
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            } else if (visibleCount === 0) {
+                const grid = document.getElementById('extracurricularsGrid');
+                const noResultsDiv = document.createElement('div');
+                noResultsDiv.className = 'no-results';
+                noResultsDiv.textContent = 'Tidak ada ekstrakurikuler yang ditemukan.';
+                grid.appendChild(noResultsDiv);
+            }
+        }
+    </script>
+</body>
+</html>
