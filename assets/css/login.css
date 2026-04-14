@@ -1,0 +1,179 @@
+/* Login Page Styles - Tema Hijau Putih */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f0f8f0 0%, #ffffff 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #4caf50;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    max-width: 450px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+    border: 1px solid #e8f5e8;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2e7d32;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 0.95em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #c8e6c9;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.role-selection {
+    margin-bottom: 30px;
+}
+
+.role-selection label {
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 15px;
+    display: block;
+    font-size: 0.95em;
+}
+
+.role-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.role-option:hover {
+    background-color: #f1f8e9;
+}
+
+.role-option input[type="radio"] {
+    margin-right: 12px;
+    transform: scale(1.2);
+    accent-color: #4caf50;
+}
+
+.role-option label {
+    color: #2e7d32;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.login-btn:hover {
+    background: linear-gradient(135deg, #388e3c, #2e7d32);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .nav-links a {
+        margin-left: 15px;
+        font-size: 0.9em;
+    }
+}
