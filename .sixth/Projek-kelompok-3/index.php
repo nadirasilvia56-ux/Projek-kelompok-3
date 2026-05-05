@@ -1,3 +1,6 @@
+<?php
+echo "hello world";
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -59,12 +62,43 @@
     <div class="container">
         <h2 style="text-align: center; color: #2e8b57; margin-bottom: 10px;">Kategori Ekstrakurikuler</h2>
         <div class="categories">
-            <div class="category-card">
-                <div class="category-icon">🏛️</div>
-                <h3 class="category-title">Organisasi</h3>
-                <p class="category-description">OSIS, MPK, dan organisasi siswa lainnya</p>
-            </div>
-            <div class="category-card">
+            <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_eskul";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+    
+    $sql = "SELECT * FROM `tb_eskul`";
+    // Execute the SQL query
+    $result = $conn->query($sql);
+    
+    // Process the result set
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+      ?>
+        <div class="category-card">
+          <div class="category-icon"><?= $row["logo"]; ?></div>
+          <h3 class="category-title">Organisasi</h3>
+          <p class="category-description">OSIS, MPK, dan organisasi siswa lainnya</p>
+      </div>
+      <?php
+  }
+} else {
+  echo "0 results";
+}
+
+$conn->close();
+?>
+
+            <!-- <div class="category-card">
                 <div class="category-icon">🎨</div>
                 <h3 class="category-title">Seni</h3>
                 <p class="category-description">Tari, Musik, Teater, dan seni lainnya</p>
@@ -88,7 +122,7 @@
                 <div class="category-icon">📚</div>
                 <h3 class="category-title">Kepemimpinan</h3>
                 <p class="category-description">Pramuka, PMR, dan kegiatan kepemimpinan</p>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>

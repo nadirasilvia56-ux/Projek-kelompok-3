@@ -1,0 +1,104 @@
+<?php
+echo "hello world";
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Ekstrakurikuler Sekolah</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <style>
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .category-card {
+            background-color: #ffffff;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        .category-card:hover {
+            box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+        }
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .category-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2e8b57;
+            margin: 0;
+        }
+        .category-description {
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">SI-Eskul</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="login.html">Login</a>
+                <a href="pages/notifications.html">Notifikasi</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1>Sistem Informasi Ekstrakurikuler Sekolah</h1>
+    </header>
+    <div class="container">
+        <h2 style="text-align: center; color: #2e8b57; margin-bottom: 10px;">Kategori Ekstrakurikuler</h2>
+        <div class="categories">
+            <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_eskul";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+    
+    $sql = "SELECT * FROM `tb_eskul`";
+    // Execute the SQL query
+    $result = $conn->query($sql);
+    
+    // Process the result set
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+      ?>
+        <div class="category-card">
+          <div class="category-icon"><?= $row["logo"]; ?></div>
+          <h3 class="category-title">Organisasi</h3>
+          <p class="category-description">OSIS, MPK, dan organisasi siswa lainnya</p>
+      </div>
+      <?php
+  }
+} else {
+  echo "0 results";
+}
+
+$conn->close();
+?>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistem Informasi Ekstrakurikuler</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">SI-Eskul</div>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="login.html">Login</a>
+                <a href="pages/notifications.html">Notifikasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-container">
+            <h2>Login Sistem</h2>
+            <form>
+                <div class="form-group">
+                    <label for="nisn">NISN:</label>
+                    <input type="text" id="nisn" name="nisn" required>
+                </div>
+                <div class="form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (Opsional):</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="role-selection">
+                    <label>Login sebagai:</label>
+                    <div class="role-option">
+                        <input type="radio" id="siswa" name="role" value="siswa" checked>
+                        <label for="siswa">Siswa</label>
+                    </div>
+                    <div class="role-option">
+                        <input type="radio" id="pengurus" name="role" value="pengurus">
+                        <label for="pengurus">Pengurus</label>
+                    </div>
+                </div>
+                <button type="submit" class="login-btn">Masuk</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
