@@ -274,171 +274,53 @@
             </div>
         </div>
 
-                <div class="extracurriculars-grid" id="extracurricularsGrid">
+
             <!-- Organisasi -->
-            <div class="extracurricular-card" data-category="organisasi">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🏛️</div>
-                    <h3 class="extracurricular-name">OSIS</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Organisasi Siswa Intra Sekolah yang mengelola berbagai kegiatan dan menjadi jembatan antara siswa dengan pihak sekolah.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-                        <div class="extracurricular-card" data-category="organisasi">
-                <div class="card-header">
-                    <div class="extracurricular-logo">👥</div>
-                    <h3 class="extracurricular-name">MPK</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Majelis Permusyawaratan Kelas yang membantu mengkoordinasikan kegiatan kelas dan menjadi penghubung siswa dengan guru.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-            <!-- Seni -->
-            <div class="extracurricular-card" data-category="seni">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🎨</div>
-                    <h3 class="extracurricular-name">Tari Tradisional</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Belajar berbagai tarian tradisional Indonesia dan mengembangkan bakat seni tari serta kreativitas siswa.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-            <div class="extracurricular-card" data-category="seni">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🎵</div>
-                    <h3 class="extracurricular-name">Paduan Suara</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Berkumpulnya siswa yang memiliki minat dan bakat di bidang vokal untuk mengasah kemampuan bernyanyi bersama.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-            <div class="extracurricular-card" data-category="seni">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🎭</div>
-                    <h3 class="extracurricular-name">Teater</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Kegiatan seni peran yang melatih kemampuan acting, improvisasi, dan kerja sama dalam sebuah pertunjukan.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-             <!-- Olahraga -->
-            <div class="extracurricular-card" data-category="olahraga">
-                <div class="card-header">
-                    <div class="extracurricular-logo">⚽</div>
-                    <h3 class="extracurricular-name">Sepakbola</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Tim sepakbola sekolah yang berlatih rutin dan mengikuti berbagai kompetisi olahraga antar sekolah.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
             
-            <div class="extracurricular-card" data-category="olahraga">
+
+    <div class="extracurriculars-grid" id="extracurricularsGrid">
+        <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_eskul";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+    
+    $sql = "SELECT * FROM `tb_eskul`";
+    // Execute the SQL query
+    $result = $conn->query($sql);
+    
+    // Process the result set
+    if ($result->num_rows > 0) {
+        // Output data of each row
+        while($row = $result->fetch_assoc()) {
+      ?>
+            <div class="extracurricular-card" data-category="<?= $row["kategori"]; ?>">
                 <div class="card-header">
-                    <div class="extracurricular-logo">🏀</div>
-                    <h3 class="extracurricular-name">Basket</h3>
+                    <div class="extracurricular-logo"><?= $row["logo"]; ?></div>
+                    <h3 class="extracurricular-name"><?= $row["nama_eskul"]; ?></h3>
                 </div>
                 <div class="card-body">
-                    <p class="extracurricular-description">Tim basket sekolah yang mengembangkan kemampuan bermain basket dan mengikuti kompetisi tingkat daerah.</p>
+                    <p class="extracurricular-description"><?= $row["deskripsi"]; ?></p>
                 </div>
                 <div class="card-footer">
                     <button class="detail-btn">Lihat Detail</button>
                 </div>
             </div>
-
-                        <div class="extracurricular-card" data-category="olahraga">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🏐</div>
-                    <h3 class="extracurricular-name">Voli</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Tim voli sekolah yang berlatih teknik permainan dan berpartisipasi dalam turnamen olahraga siswa.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-                        <!-- Bahasa -->
-            <div class="extracurricular-card" data-category="bahasa">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🌍</div>
-                    <h3 class="extracurricular-name">Bahasa Inggris</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Kegiatan belajar bahasa Inggris yang meliputi speaking, writing, grammar, dan preparation untuk ujian bahasa.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-            <div class="extracurricular-card" data-category="bahasa">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🇯🇵</div>
-                    <h3 class="extracurricular-name">Bahasa Jepang</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Belajar bahasa Jepang mulai dari hiragana, katakana, kanji dasar, percakapan sehari-hari, dan budaya Jepang.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-             <!-- Sains & Teknologi -->
-            <div class="extracurricular-card" data-category="sains">
-                <div class="card-header">
-                    <div class="extracurricular-logo">🤖</div>
-                    <h3 class="extracurricular-name">Robotik</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Kegiatan pembuatan dan programming robot untuk kompetisi robotik tingkat nasional dan internasional.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-
-                        <div class="extracurricular-card" data-category="sains">
-                <div class="card-header">
-                    <div class="extracurricular-logo">💻</div>
-                    <h3 class="extracurricular-name">Programming</h3>
-                </div>
-                <div class="card-body">
-                    <p class="extracurricular-description">Belajar berbagai bahasa pemrograman, algoritma, dan pengembangan aplikasi untuk mengasah kemampuan IT siswa.</p>
-                </div>
-                <div class="card-footer">
-                    <button class="detail-btn">Lihat Detail</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+      <?php
+        }
+    } else {
+        echo "<p class='no-results'>Tidak ada ekstrakurikuler yang ditemukan.</p>";
+    }
+    $conn->close();
+?>
+</div>
         <div class="navigation">
             <a href="profile.html"><button class="nav-btn">Ke Profil Saya</button></a>
         </div>
